@@ -878,7 +878,15 @@
 											// y
 											if (/^[0-9]{1,3}%$/.test(self.options.current.css.loading.y)) {
 
-												result.marginTop = (((self.options.current.css.loading.y.replace('%', '') * (window.dom.content.height())) / 100) - (element.height() / 2));
+												var vPadding = 0;
+
+												// since height is based on the dialog frame, consider padding
+												var outerPadding = window._.methods.getPadding(window.dom.element);
+												vPadding += (outerPadding.bottom + outerPadding.top);
+												var innerPadding = window._.methods.getPadding(window.dom.content);
+												vPadding += (innerPadding.bottom + innerPadding.top);
+
+												result.marginTop = (((self.options.current.css.loading.y.replace('%', '') * (window.dom.element.innerHeight() - vPadding)) / 100) - (element.height() / 2));
 
 											} else {
 
@@ -2832,7 +2840,7 @@
 
 		// END: jQuery integration
 
-		UltimaDialog.version = '0.95.1';
+		UltimaDialog.version = '0.95.2';
 	}
 
 }());
