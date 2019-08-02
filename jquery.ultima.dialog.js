@@ -2564,8 +2564,20 @@
 						index 	= undefined;
 					}
 
+					if (index === undefined) {
+
+						if (UltimaDialog.collection.length > 0) {
+
+							index = (UltimaDialog.collection.length - 1);
+						}
+					}
+					if ((typeof index !== 'number') || isNaN(index)) {
+
+						return false;
+					}
+
 					var dialog = UltimaDialog.get(
-						( isNaN(parseInt(index)) ? 0 : parseInt(index) )
+						( isNaN(parseInt(index)) ? UltimaDialog.collection.length : parseInt(index) )
 					);
 
 					if (dialog === null) {
@@ -2628,7 +2640,11 @@
 						index = (len - 1);
 					}
 
-					if (index >= len) {
+					if (typeof index === 'string') {
+
+						index = parseInt(index, 10);
+					}
+					if ((typeof index !== 'number') || isNaN(index) || (index >= len)) {
 
 						return null;
 					}
@@ -2840,7 +2856,7 @@
 
 		// END: jQuery integration
 
-		UltimaDialog.version = '0.95.2';
+		UltimaDialog.version = '0.95.3';
 	}
 
 }());
