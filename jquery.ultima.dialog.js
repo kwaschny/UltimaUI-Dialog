@@ -1458,6 +1458,23 @@
 															// place content
 															window.dom.content.html(response);
 
+															// substitute label for/id by converting [data-ultimadialog-id] and [data-ultimadialog-for]
+															window.dom.content.find('[data-ultimadialog-id]').each(function() {
+
+																var e 		= jQuery(this);
+																var refID 	= e.attr('data-ultimadialog-id');
+																var randID 	= ( refID + Math.floor( Math.random() * 10000 ) );
+
+																e
+																	.attr('id', randID)
+																	.removeAttr('data-ultimadialog-id')
+																;
+																window.dom.content.find('[data-ultimadialog-for="' + refID + '"]')
+																	.attr('for', randID)
+																	.removeAttr('data-ultimadialog-for')
+																;
+															});
+
 															// attach submit tracking
 															if (self.options.current.behavior.trackSubmit === true) {
 
@@ -2008,8 +2025,14 @@
 											var refID 	= e.attr('data-ultimadialog-id');
 											var randID 	= ( refID + Math.floor( Math.random() * 10000 ) );
 
-											e.attr('id', randID);
-											content.find('[data-ultimadialog-for="' + refID + '"]').attr('for', randID);
+											e
+												.attr('id', randID)
+												.removeAttr('data-ultimadialog-id')
+											;
+											content.find('[data-ultimadialog-for="' + refID + '"]')
+												.attr('for', randID)
+												.removeAttr('data-ultimadialog-for')
+											;
 										});
 
 										// callback: on content ready
@@ -2856,7 +2879,7 @@
 
 		// END: jQuery integration
 
-		UltimaDialog.version = '0.95.3';
+		UltimaDialog.version = '0.95.4';
 	}
 
 }());
