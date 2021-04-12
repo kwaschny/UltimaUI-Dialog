@@ -1481,8 +1481,8 @@
 																window._.methods.attachSubmitTracking();
 															}
 
-															// resize for dialog content
-															window.resize();
+															// relocate window for dialog content
+															window.relocate();
 
 															// display content
 															window.dom.content.fadeTo(
@@ -1547,8 +1547,8 @@
 															// place content
 															window.dom.content.html(response);
 
-															// resize for dialog content
-															window.resize();
+															// relocate window for dialog content
+															window.relocate();
 
 															// display content
 															window.dom.content.fadeTo(
@@ -1675,8 +1675,8 @@
 															}
 														}
 
-														// resize for dialog content
-														window.resize();
+														// relocate window for dialog content
+														window.relocate();
 
 														// display content
 														window.dom.content.fadeTo(
@@ -1750,8 +1750,8 @@
 														// place content
 														window.dom.content.html(preload);
 
-														// resize for dialog content
-														window.resize();
+														// relocate window for dialog content
+														window.relocate();
 
 														// display content
 														window.dom.content.fadeTo(
@@ -1933,8 +1933,8 @@
 															}
 														}
 
-														// resize for dialog content
-														window.resize();
+														// relocate window for dialog content
+														window.relocate();
 
 														// display content
 														window.dom.content.fadeTo(
@@ -2879,7 +2879,7 @@
 
 		// END: jQuery integration
 
-		UltimaDialog.version = '0.95.4';
+		UltimaDialog.version = '0.95.5';
 	}
 
 }());
