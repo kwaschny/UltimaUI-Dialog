@@ -35,8 +35,8 @@
 			var self = this;
 
 			// cache global selectors
-			var jqWindow 	= jQuery(window);
-			var jqBody 		= jQuery('body');
+			var jqWindow = jQuery(window);
+			var jqBody   = jQuery('body');
 
 			if ((jqWindow.length === 0) || (jqBody.length === 0)) {
 
@@ -45,8 +45,8 @@
 
 			// BEGIN: public properties
 
-				this.curtain 	= null;
-				this.window 	= null;
+				this.curtain = null;
+				this.window  = null;
 
 				// BEGIN: options
 
@@ -62,10 +62,10 @@
 								show: {
 
 									// effect used to show the curtain
-									effect: 	'fadeIn',
+									effect: 'fadeIn',
 
 									// duration of the above effect
-									duration: 	400
+									duration: 400
 
 								},
 
@@ -73,11 +73,11 @@
 
 									// effect used to hide the curtain
 									// undefined: inherit value from show
-									effect: 	undefined,
+									effect: undefined,
 
 									// duration of the above effect
 									// undefined: inherit value from show
-									duration: 	undefined
+									duration: undefined
 
 								},
 
@@ -91,10 +91,10 @@
 								show: {
 
 									// effect used to show the dialog window
-									effect: 	'fadeIn',
+									effect: 'fadeIn',
 
 									// duration of the above effect
-									duration: 	400
+									duration: 400
 
 								},
 
@@ -102,11 +102,11 @@
 
 									// effect used to hide the dialog window
 									// undefined: inherit value from show
-									effect: 	undefined,
+									effect: undefined,
 
 									// duration of the above effect
 									// undefined: inherit value from show
-									duration: 	undefined
+									duration: undefined
 
 								},
 
@@ -116,17 +116,17 @@
 								reposition: {
 
 									// animation duration for repositioning the dialog
-									duration: 	100
+									duration: 100
 
 								},
 
 								resize: {
 
 									// animation duration for resizing the dialog content
-									duration: 	200,
+									duration: 200,
 
 									// polling rate to watch for resize of the viewport
-									rate: 		200
+									rate: 200
 
 								}
 
@@ -144,27 +144,27 @@
 							},
 
 							// click on the curtain will trigger closing of the dialog
-							closeOnCurtain: 	true,
+							closeOnCurtain: true,
 
 							// pressing the ESC key will trigger closing of the dialog
 							// this value will override the behavior of already opened dialogs (overrides global handler)
-							closeOnEscape: 		true,
+							closeOnEscape: true,
 
 							// prepend an element that triggers closing of the dialog
-							closeOnWindow: 		true,
+							closeOnWindow: true,
 
 							// disable scroll on body
 							// auto: disable on overflow only (avoids multiple scrollbars)
-							disableScrolling: 	'auto',
+							disableScrolling: 'auto',
 
 							// automatically limit the size of the dialog content to prevent overflow
-							preventOverflow: 	true,
+							preventOverflow: true,
 
 							// automatically assign submit handlers to every form element placed into the dialog content
-							trackSubmit: 		true,
+							trackSubmit: true,
 
 							// translate plain content automatically to the corresponding media (affects images only)
-							translateMedia: 	true,
+							translateMedia: true,
 
 							// increment zIndex with each (overlapping) dialog
 							zIndexInc: true
@@ -176,45 +176,45 @@
 							loading: {
 
 								// class added to the loading notification
-								className: 	'',
+								className: '',
 
 								// content to be placed within the loading notification
-								content: 	undefined,
+								content: undefined,
 
 								// horizontal position of the loading notification, either in px or in %
-								x: 			'50%',
+								x: '50%',
 
 								// vertical position of the loading notification, either in px or in %
-								y: 			'50%'
+								y: '50%'
 
 							},
 
 							curtain: {
 
 								// CSS3 filter applied to the curtain, e.g. blur(4px), grayscale(100%)
-								applyFilter: 	undefined,
+								applyFilter: undefined,
 
 								// class added to the curtain element
-								className: 		'',
+								className: '',
 
 								// draw curtain with a (non-transparent) color
-								isVisible: 		true,
+								isVisible: true,
 
 								// z-index
-								zIndex: 	9003
+								zIndex: 9003
 
 							},
 
 							window: {
 
 								// class added to the window element
-								className: 		'',
+								className: '',
 
 								// close control
 								close: {
 
 									// class added to the close control element
-									className: 	''
+									className: ''
 								},
 
 								// margin applied to the width of the viewport
@@ -224,13 +224,13 @@
 								hardMarginY: 0,
 
 								// horizontal position of the window, either in px or in %
-								x: 				'50%',
+								x: '50%',
 
 								// vertical position of the window, either in px or in %
-								y: 				'50%',
+								y: '50%',
 
 								// z-index
-								zIndex: 	9004
+								zIndex: 9004
 
 							}
 
@@ -239,37 +239,37 @@
 						callbacks: {
 
 							// before opening
-							onOpening: 			undefined, // (UltimaDialog) 			: return false to interrupt
+							onOpening: undefined, // (UltimaDialog) : return false to interrupt
 
 							// after curtain is fully shown
-							onCurtainOpened: 	undefined, // (UltimaDialog)
+							onCurtainOpened: undefined, // (UltimaDialog)
 
 							// after window is fully shown
-							onWindowOpened: 	undefined, // (UltimaDialog)
+							onWindowOpened: undefined, // (UltimaDialog)
 
 							// after content is known and ready to be placed
-							onContentReady: 	undefined, // (UltimaDialog, content) 	: return false to interrupt
+							onContentReady: undefined, // (UltimaDialog, content) : return false to interrupt
 
 							// after content is fully shown
-							onContentVisible: 	undefined, // (UltimaDialog)
+							onContentVisible: undefined, // (UltimaDialog)
 
 							// after asynchronous request returned an expected result
-							onAsyncSuccess: 	undefined, // (UltimaDialog, response)
+							onAsyncSuccess: undefined, // (UltimaDialog, response)
 
 							// after asynchronous request returned an unexpected result
-							onAsyncError: 		undefined, // (UltimaDialog, request)
+							onAsyncError: undefined, // (UltimaDialog, request)
 
 							// before submit within dialog is sent
-							onSubmit: 			undefined, // (UltimaDialog, data) 		: return false to interrupt
+							onSubmit: undefined, // (UltimaDialog, data) : return false to interrupt
 
 							// before closing
-							onClosing: 			undefined, // (UltimaDialog) 			: return false to interrupt
+							onClosing: undefined, // (UltimaDialog) : return false to interrupt
 
 							// after curtain is fully hidden and removed
-							onCurtainClosed: 	undefined, // (UltimaDialog)
+							onCurtainClosed: undefined, // (UltimaDialog)
 
 							// after window is fully hidden and removed
-							onWindowClosed: 	undefined  // (UltimaDialog)
+							onWindowClosed: undefined  // (UltimaDialog)
 
 						}
 
@@ -284,24 +284,24 @@
 				this._.properties = {
 
 					classNames: {
-						curtain: 		'UltimaDialog-curtain',
+						curtain: 'UltimaDialog-curtain',
 						window: {
-							frame: 		'UltimaDialog-window',
-							content: 	'UltimaDialog-window-content',
-							close: 		'UltimaDialog-window-close'
+							frame:   'UltimaDialog-window',
+							content: 'UltimaDialog-window-content',
+							close:   'UltimaDialog-window-close'
 						}
 					},
 
 					// IE 9- doesn't consider border-box on min-width/min-height
-					simulateBorderBox: 				(window.atob === undefined),
+					simulateBorderBox: (window.atob === undefined),
 
 					// IE 9- doesn't consider a transparent background as layer
-					simulateTransparentBackground: 	(window.atob === undefined),
+					simulateTransparentBackground: (window.atob === undefined),
 
 					// CSS3 filter support start at IE 10+
-					supportsFilter: 				(window.atob !== undefined),
+					supportsFilter: (window.atob !== undefined),
 
-					supportsMedia: 					(window.atob !== undefined)
+					supportsMedia: (window.atob !== undefined)
 
 				};
 
@@ -321,8 +321,8 @@
 					}
 
 					// build elements
-					this.curtain 	= self._.methods.createCurtain();
-					this.window 	= self._.methods.createWindow(content);
+					this.curtain = self._.methods.createCurtain();
+					this.window  = self._.methods.createWindow(content);
 
 					// connect elements
 					this.curtain._.properties.window = this.window;
@@ -398,8 +398,8 @@
 
 					// dialog
 					this.show({
-						media: 		'image',
-						resource: 	image,
+						media:      'image',
+						resource:   image,
 						attributes: attr
 					});
 
@@ -410,8 +410,8 @@
 
 					// dialog
 					this.show({
-						media: 		'video',
-						resource: 	url,
+						media:      'video',
+						resource:   url,
 						attributes: attr
 					});
 
@@ -422,8 +422,8 @@
 
 					// dialog
 					this.show({
-						media: 		'audio',
-						resource: 	url,
+						media:      'audio',
+						resource:   url,
 						attributes: attr
 					});
 
@@ -451,8 +451,8 @@
 
 					// dialog
 					this.show({
-						media: 		'iframe',
-						resource: 	url,
+						media:     'iframe',
+						resource:   url,
 						attributes: attr
 					});
 
@@ -594,8 +594,8 @@
 
 									properties: {
 
-										isOpened: 	false,
-										window: undefined
+										isOpened: false,
+										window:   undefined
 
 									},
 
@@ -630,8 +630,8 @@
 												) {
 
 													e.css({
-														'-webkit-filter': 	filter,
-														'filter': 			filter
+														'-webkit-filter': filter,
+														'filter':         filter
 													});
 												}
 											});
@@ -664,8 +664,8 @@
 												) {
 
 													e.css({
-														'-webkit-filter': 	'',
-														'filter': 			''
+														'-webkit-filter': '',
+														'filter':         ''
 													});
 												}
 											});
@@ -701,14 +701,14 @@
 
 									jQuery.extend(true, cssAttr, self.options.current.css.curtain);
 									jQuery.extend(true, cssAttr, {
-										bottom: 	0,
-										height: 	'100%',
-										left: 		0,
-										position: 	'fixed',
-										right: 		0,
-										top: 		0,
-										width: 		'100%',
-										zIndex: 	(self.options.current.css.curtain.zIndex + (self.options.current.behavior.zIndexInc ? UltimaDialog.collection.length : 0 ))
+										bottom:   0,
+										height:   '100%',
+										left:     0,
+										position: 'fixed',
+										right:    0,
+										top:      0,
+										width:    '100%',
+										zIndex:   (self.options.current.css.curtain.zIndex + (self.options.current.behavior.zIndexInc ? UltimaDialog.collection.length : 0 ))
 									});
 
 									if (self.options.current.css.curtain.isVisible === false) {
@@ -766,11 +766,11 @@
 
 							dom: {
 
-								element: 		jQuery('<div></div>').hide(),
-								content: 		jQuery('<div></div>').css('opacity', 0.00),
+								element: jQuery('<div></div>').hide(),
+								content: jQuery('<div></div>').css('opacity', 0.00),
 
-								loading: 		undefined,
-								closeButton: 	undefined
+								loading:     undefined,
+								closeButton: undefined
 
 							},
 
@@ -780,10 +780,10 @@
 
 									properties: {
 
-										curtain: 		undefined,
+										curtain: undefined,
 
-										isAjax: 		false,
-										url: 			undefined
+										isAjax: false,
+										url:    undefined
 									},
 
 									methods: {
@@ -906,9 +906,9 @@
 
 											// consider the whole viewport
 											element.css({
-												display: 	'none',
-												left: 		0,
-												top: 		0
+												display: 'none',
+												left:    0,
+												top:     0
 											});
 
 											jqBody.append(element);
@@ -916,7 +916,7 @@
 											// BEGIN: determine computed size
 
 												var result = {
-													width: 	element.outerWidth(),
+													width:  element.outerWidth(),
 													height: element.outerHeight()
 												};
 
@@ -924,8 +924,8 @@
 
 													var padding = window._.methods.getPadding(element);
 
-													result.width 	-= (padding.left + padding.right);
-													result.height 	-= (padding.bottom + padding.top);
+													result.width  -= (padding.left + padding.right);
+													result.height -= (padding.bottom + padding.top);
 												}
 
 											// END: determine computed size
@@ -934,10 +934,10 @@
 
 											// BEGIN: cap result
 
-												var widthCap 	 = jqWindow.width();
-													widthCap 	-= self.options.current.css.window.hardMarginX;
-												var heightCap 	 = jqWindow.height();
-													heightCap 	-= self.options.current.css.window.hardMarginY;
+												var widthCap   = jqWindow.width();
+													widthCap  -= self.options.current.css.window.hardMarginX;
+												var heightCap  = jqWindow.height();
+													heightCap -= self.options.current.css.window.hardMarginY;
 
 												if (result.width > widthCap) {
 
@@ -957,16 +957,16 @@
 
 											var result = {
 												bottom: parseInt(element.css('padding-bottom'), 10),
-												left: 	parseInt(element.css('padding-left'), 10),
-												right: 	parseInt(element.css('padding-right'), 10),
-												top: 	parseInt(element.css('padding-top'), 10)
+												left:   parseInt(element.css('padding-left'), 10),
+												right:  parseInt(element.css('padding-right'), 10),
+												top:    parseInt(element.css('padding-top'), 10)
 											};
 
 											result = {
 												bottom: ( isNaN(result.bottom) ? 0 : result.bottom ),
-												left: 	( isNaN(result.left)   ? 0 : result.left   ),
-												right: 	( isNaN(result.right)  ? 0 : result.right  ),
-												top: 	( isNaN(result.top)    ? 0 : result.top    )
+												left:   ( isNaN(result.left)   ? 0 : result.left   ),
+												right:  ( isNaN(result.right)  ? 0 : result.right  ),
+												top:    ( isNaN(result.top)    ? 0 : result.top    )
 											};
 
 											return result;
@@ -975,7 +975,7 @@
 										rememberSize: function(element) {
 
 											var size = {
-												width: 	element.outerWidth(),
+												width:  element.outerWidth(),
 												height: element.outerHeight()
 											};
 
@@ -984,13 +984,13 @@
 
 												var padding = window._.methods.getPadding(element);
 
-												size.width 	-= (padding.left + padding.right);
+												size.width  -= (padding.left   + padding.right);
 												size.height -= (padding.bottom + padding.top);
 											}
 
 											element.css({
-												'min-height': 	size.height,
-												'min-width': 	size.width
+												'min-height': size.height,
+												'min-width':  size.width
 											});
 
 											return true;
@@ -1272,9 +1272,9 @@
 									}
 
 									// consider padding of dialog window
-									var padding 	= this._.methods.getPadding(this.dom.element);
-									var paddingH 	= (padding.left + padding.right);
-									var paddingV 	= (padding.bottom + padding.top);
+									var padding  = this._.methods.getPadding(this.dom.element);
+									var paddingH = (padding.left + padding.right);
+									var paddingV = (padding.bottom + padding.top);
 
 									// consider hard margin
 									var marginH = self.options.current.css.window.hardMarginX;
@@ -1286,8 +1286,8 @@
 									var maxViewportWidth = (jqWindow.width() - paddingH - marginH);
 									if (actualWidth >= maxViewportWidth) {
 
-										actualOverflow 	= true;
-										actualWidth 	= maxViewportWidth;
+										actualOverflow = true;
+										actualWidth    = maxViewportWidth;
 
 										this.dom.element.css({
 											minWidth: ''
@@ -1316,16 +1316,16 @@
 									var maxViewportHeight = (jqWindow.height() - paddingV - marginV);
 									if (actualHeight >= maxViewportHeight) {
 
-										actualOverflow 	= true;
-										actualHeight 	= maxViewportHeight;
+										actualOverflow = true;
+										actualHeight   = maxViewportHeight;
 
 										this.dom.element.css({
 											minHeight: ''
 										});
 
 										this.dom.content.css({
-											overflow: 	'auto',
-											maxHeight: 	actualHeight
+											overflow:  'auto',
+											maxHeight: actualHeight
 										});
 
 									} else {
@@ -1354,8 +1354,8 @@
 
 											// re-calculate actual width/height (add scrollbar width/height)
 											this.dom.content.css({
-												maxWidth: 	(jqWindow.width() - paddingH - marginH),
-												maxHeight: 	(jqWindow.height() - paddingV - marginV)
+												maxWidth:  (jqWindow.width() - paddingH - marginH),
+												maxHeight: (jqWindow.height() - paddingV - marginV)
 											});
 
 										} else {
@@ -1407,10 +1407,10 @@
 										// merge ajax request arguments
 										var ajaxSettings = jQuery.extend(true, content.settings, {
 
-											type: 	content.method,
-											url: 	content.url,
-											data: 	content.data,
-											cache: 	self.options.current.behavior.ajax.cache,
+											type:  content.method,
+											url:   content.url,
+											data:  content.data,
+											cache: self.options.current.behavior.ajax.cache,
 
 											// request successful
 											success: function(response) {
@@ -1428,8 +1428,8 @@
 												window._.methods.rememberSize(window.dom.element);
 
 												// predict size to smoothen the resize
-												var size 	= window._.methods.calcSize(response);
-												var pos 	= window._.methods.calcPosition(size.width, size.height);
+												var size = window._.methods.calcSize(response);
+												var pos  = window._.methods.calcPosition(size.width, size.height);
 
 												window.resetContent(function() {
 
@@ -1438,10 +1438,10 @@
 
 													window.dom.element.animate(
 														{
-															'min-height': 	size.height,
-															left: 			pos.left,
-															top: 			pos.top,
-															'min-width': 	size.width
+															'min-height': size.height,
+															left:         pos.left,
+															top:          pos.top,
+															'min-width':  size.width
 														},
 														self.options.current.animations.window.resize.duration,
 														function() {
@@ -1461,9 +1461,9 @@
 															// substitute label for/id by converting [data-ultimadialog-id] and [data-ultimadialog-for]
 															window.dom.content.find('[data-ultimadialog-id]').each(function() {
 
-																var e 		= jQuery(this);
-																var refID 	= e.attr('data-ultimadialog-id');
-																var randID 	= ( refID + Math.floor( Math.random() * 10000 ) );
+																var e      = jQuery(this);
+																var refID  = e.attr('data-ultimadialog-id');
+																var randID = ( refID + Math.floor( Math.random() * 10000 ) );
 
 																e
 																	.attr('id', randID)
@@ -1517,8 +1517,8 @@
 												window._.methods.rememberSize(window.dom.element);
 
 												// predict size to smoothen the resize
-												var size 	= window._.methods.calcSize(response);
-												var pos 	= window._.methods.calcPosition(size.width, size.height);
+												var size = window._.methods.calcSize(response);
+												var pos  = window._.methods.calcPosition(size.width, size.height);
 
 												window.resetContent(function() {
 
@@ -1527,10 +1527,10 @@
 
 													window.dom.element.animate(
 														{
-															'min-height': 	size.height,
-															left: 			pos.left,
-															top: 			pos.top,
-															'min-width': 	size.width
+															'min-height': size.height,
+															left:         pos.left,
+															top:          pos.top,
+															'min-width':  size.width
 														},
 														self.options.current.animations.window.resize.duration,
 														function() {
@@ -1590,9 +1590,9 @@
 
 										// initialize "invisible" iframe to allow preloading
 										var iframe = jQuery('<iframe>').css({
-											height: 	0,
-											opacity: 	0.00,
-											width: 		0
+											height:     0,
+											opacity: 0.00,
+											width:      0
 										});
 
 										if (!content.attributes) {
@@ -1637,11 +1637,11 @@
 
 											// predict size to smoothen the resize
 											var padding = window._.methods.getPadding(window.dom.element);
-											var size 	= {
-												width: 	( isNaN(parseInt(iframe.attr('width'),  10)) ? 0 : parseInt(iframe.attr('width'),  10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.left + padding.right)),
+											var size    = {
+												width:  ( isNaN(parseInt(iframe.attr('width'),  10)) ? 0 : parseInt(iframe.attr('width'),  10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.left + padding.right)),
 												height: ( isNaN(parseInt(iframe.attr('height'), 10)) ? 0 : parseInt(iframe.attr('height'), 10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.bottom + padding.top) )
 											};
-											var pos 	= window._.methods.calcPosition(size.width, size.height);
+											var pos = window._.methods.calcPosition(size.width, size.height);
 
 											window.resetContent(function() {
 
@@ -1650,10 +1650,10 @@
 
 												window.dom.element.animate(
 													{
-														'min-height': 	size.height,
-														left: 			pos.left,
-														top: 			pos.top,
-														'min-width': 	size.width
+														'min-height': size.height,
+														left:         pos.left,
+														top:          pos.top,
+														'min-width':  size.width
 													},
 													self.options.current.animations.window.resize.duration,
 													function() {
@@ -1720,8 +1720,8 @@
 											window._.methods.rememberSize(window.dom.element);
 
 											// predict size to smoothen the resize
-											var size 	= window._.methods.calcSize(preload);
-											var pos 	= window._.methods.calcPosition(size.width, size.height);
+											var size = window._.methods.calcSize(preload);
+											var pos  = window._.methods.calcPosition(size.width, size.height);
 
 											window.resetContent(function() {
 
@@ -1730,10 +1730,10 @@
 
 												window.dom.element.animate(
 													{
-														'min-height': 	size.height,
-														left: 			pos.left,
-														top: 			pos.top,
-														'min-width': 	size.width
+														'min-height': size.height,
+														left:         pos.left,
+														top:          pos.top,
+														'min-width':  size.width
 													},
 													self.options.current.animations.window.resize.duration,
 													function() {
@@ -1812,9 +1812,9 @@
 											.attr('controls', 'controls')
 											.css({
 
-												height: 	0,
-												opacity: 	0.00,
-												width: 		0
+												height:     0,
+												opacity: 0.00,
+												width:      0
 
 											})
 										;
@@ -1838,13 +1838,13 @@
 										var minSize = {
 
 											video: {
-												width: 	640,
+												width:  640,
 												height: 360
 											},
 
 											audio: {
-												width: 	320,
-												height: 30
+												width:  320,
+												height:  30
 											}
 
 										};
@@ -1852,8 +1852,8 @@
 										// Internet Explorer controls
 										if ( jqWindow[0].ActiveXObject || ('ActiveXObject' in jqWindow[0]) ) {
 
-											minSize.audio.width 	= 580;
-											minSize.audio.height 	= 80;
+											minSize.audio.width  = 580;
+											minSize.audio.height =  80;
 										}
 
 										if (!content.attributes) {
@@ -1895,11 +1895,11 @@
 
 											// predict size to smoothen the resize
 											var padding = window._.methods.getPadding(window.dom.element);
-											var size 	= {
-												width: 	( isNaN(parseInt(media.attr('width'), 10)) ? 0 : parseInt(media.attr('width'), 10) ) + (padding.left + padding.right),
+											var size    = {
+												width:  ( isNaN(parseInt(media.attr('width'), 10)) ? 0 : parseInt(media.attr('width'), 10) ) + (padding.left + padding.right),
 												height: ( isNaN(parseInt(media.attr('height'), 10)) ? 0 : parseInt(media.attr('height'), 10) ) + (padding.bottom + padding.top)
 											};
-											var pos 	= window._.methods.calcPosition(size.width, size.height);
+											var pos = window._.methods.calcPosition(size.width, size.height);
 
 											window.resetContent(function() {
 
@@ -1908,19 +1908,19 @@
 
 												window.dom.element.animate(
 													{
-														'min-height': 	size.height,
-														left: 			pos.left,
-														top: 			pos.top,
-														'min-width': 	size.width
+														'min-height': size.height,
+														left:         pos.left,
+														top:          pos.top,
+														'min-width':  size.width
 													},
 													self.options.current.animations.window.resize.duration,
 													function() {
 
 														media.css({
 
-															height: 	'',
-															opacity: 	1.00,
-															width: 		content.attributes.width
+															height:  '',
+															opacity: 1.00,
+															width:   content.attributes.width
 
 														});
 
@@ -2021,9 +2021,9 @@
 										// substitute label for/id by converting [data-ultimadialog-id] and [data-ultimadialog-for]
 										content.find('[data-ultimadialog-id]').each(function() {
 
-											var e 		= jQuery(this);
-											var refID 	= e.attr('data-ultimadialog-id');
-											var randID 	= ( refID + Math.floor( Math.random() * 10000 ) );
+											var e      = jQuery(this);
+											var refID  = e.attr('data-ultimadialog-id');
+											var randID = ( refID + Math.floor( Math.random() * 10000 ) );
 
 											e
 												.attr('id', randID)
@@ -2139,14 +2139,14 @@
 									if (!self.options.current.css.window.className) {
 
 										cssAttr.backgroundColor = '#FFFFFF';
-										cssAttr.color 			= '#000000';
+										cssAttr.color           = '#000000';
 									}
 
 									jQuery.extend(true, cssAttr, self.options.current.css.window);
 									jQuery.extend(true, cssAttr, {
-										boxSizing: 	'border-box',
-										position: 	'fixed',
-										zIndex: 	(self.options.current.css.window.zIndex + UltimaDialog.collection.length)
+										boxSizing: 'border-box',
+										position:  'fixed',
+										zIndex:    (self.options.current.css.window.zIndex + UltimaDialog.collection.length)
 									});
 
 									// style
@@ -2417,8 +2417,8 @@
 				UltimaDialog._.methods.disableScrolling = function(element) {
 
 					element.css({
-						'overflow': 					'hidden',
-						'-webkit-backface-visibility': 	'hidden'
+						'overflow':                    'hidden',
+						'-webkit-backface-visibility': 'hidden'
 					});
 
 					return true;
@@ -2427,8 +2427,8 @@
 				UltimaDialog._.methods.enableScrolling = function(element) {
 
 					element.css({
-						'overflow': 					'',
-						'-webkit-backface-visibility': 	''
+						'overflow':                    '',
+						'-webkit-backface-visibility': ''
 					});
 
 					return true;
@@ -2491,8 +2491,8 @@
 
 					// BEGIN: rebuild form action
 
-						var url 		= jqForm.attr('action');
-						var endpoint 	= '';
+						var url      = jqForm.attr('action');
+						var endpoint = '';
 
 						if (typeof url === 'string') {
 
@@ -2551,10 +2551,10 @@
 						// perform submission (send ajax request)
 						dialog.window.setContent(
 							{
-								method: 	method.toUpperCase(),
-								url: 		url,
-								data: 		data,
-								settings: 	ajaxSettings
+								method:   method.toUpperCase(),
+								url:      url,
+								data:     data,
+								settings: ajaxSettings
 							},
 							false
 						);
@@ -2584,7 +2584,7 @@
 					if (typeof index === 'boolean') {
 
 						animate = index;
-						index 	= undefined;
+						index   = undefined;
 					}
 
 					if (index === undefined) {
@@ -2711,7 +2711,7 @@
 
 						// (options)
 						options = index;
-						index 	= undefined;
+						index   = undefined;
 					}
 
 					var dialog = UltimaDialog.get(index);
@@ -2775,8 +2775,8 @@
 						// url, options
 						if (UltimaDialog._.methods.isOptions(attributes)) {
 
-							options 	= attributes;
-							attributes 	= undefined;
+							options    = attributes;
+							attributes = undefined;
 
 						}
 						// url, attributes
@@ -2815,8 +2815,8 @@
 						// url, data, options
 						if (!jQuery.isFunction(callback)) {
 
-							options 	= callback;
-							callback 	= undefined;
+							options  = callback;
+							callback = undefined;
 
 						// url, data, callback
 						}
@@ -2826,14 +2826,14 @@
 						// url, callback
 						if (jQuery.isFunction(data)) {
 
-							callback 	= data;
-							data 		= undefined;
+							callback = data;
+							data     = undefined;
 
 						// url, options
 						} else if (UltimaDialog._.methods.isOptions(data)) {
 
 							options = data;
-							data 	= undefined;
+							data    = undefined;
 
 						// url, data
 						}
@@ -2852,8 +2852,8 @@
 							mergedOptions.callbacks = {};
 						}
 
-						mergedOptions.callbacks.onAsyncSuccess 	= callback;
-						mergedOptions.callbacks.onAsyncError 	= callback;
+						mergedOptions.callbacks.onAsyncSuccess = callback;
+						mergedOptions.callbacks.onAsyncError   = callback;
 					}
 
 					var dialog = new UltimaDialog(mergedOptions);
