@@ -1484,6 +1484,12 @@
 															// relocate window for dialog content
 															window.relocate();
 
+															// relocate window for every async loading element in dialog content
+															window.dom.content.find('img').on('load', function() {
+
+																window.relocate();
+															});
+
 															// display content
 															window.dom.content.fadeTo(
 																self.options.current.animations.window.show.duration,
@@ -2879,7 +2885,7 @@
 
 		// END: jQuery integration
 
-		UltimaDialog.version = '0.95.5';
+		UltimaDialog.version = '0.95.6';
 	}
 
 }());
