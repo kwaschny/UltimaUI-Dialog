@@ -1983,16 +1983,30 @@
 									// plain
 									} else if (typeof content === 'string') {
 
-										if (self.options.current.behavior.translateMedia === true) {
+										if (
+											(self.options.current.behavior.translateMedia === true) &&
+											(content.indexOf('<') === -1) // any occurence of markup excludes a media URL
+										 ) {
 
-											if (/\.(gif|jpe?g|png)(\?|$)/i.test(content)) {
+											var matches = new RegExp('^[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._~:/?#\\[\\]@!$&\'()*+,;=-]+\\.([A-Za-z0-9]+)').exec(content);
+											if ((matches !== null) && (matches.length === 2)) {
 
-												return window.setContent({ media: 'image', resource: content });
-											}
+												switch (matches[1].toLowerCase()) {
 
-											if (/\.(mp3)(\?|$)/i.test(content)) {
+													case 'gif':
+													case 'jpg':
+													case 'jpeg':
+													case 'png':
+														return window.setContent({ media: 'image', resource: content });
 
+													case 'mp3':
+													case 'ogg':
 												return window.setContent({ media: 'audio', resource: content });
+
+													case 'mp4':
+													case 'webm':
+														return window.setContent({ media: 'video', resource: content });
+												}
 											}
 										}
 
