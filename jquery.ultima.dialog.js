@@ -1300,6 +1300,7 @@
 
 									} else {
 
+										this.dom.element.css('min-width', '');
 										this.dom.content.css('max-width', '');
 
 										if (isFixed) {
@@ -1328,6 +1329,7 @@
 
 									} else {
 
+										this.dom.element.css('min-height', '');
 										this.dom.content.css('max-height', '');
 
 										if (isFixed) {
@@ -2001,7 +2003,7 @@
 
 													case 'mp3':
 													case 'ogg':
-												return window.setContent({ media: 'audio', resource: content });
+														return window.setContent({ media: 'audio', resource: content });
 
 													case 'mp4':
 													case 'webm':
@@ -2900,7 +2902,7 @@
 
 		// END: jQuery integration
 
-		UltimaDialog.version = '0.95.6';
+		UltimaDialog.version = '0.95.7';
 	}
 
 }());
