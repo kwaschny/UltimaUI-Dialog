@@ -526,7 +526,7 @@
 
 											// close curtain
 											this.dom.element.stop(true, true).fadeOut(
-												( duration === undefined ? self.options.current.animations.curtain.hide.duration : duration ),
+												( (duration === undefined) ? self.options.current.animations.curtain.hide.duration : duration ),
 												function() {
 
 													// completely remove the element from DOM
@@ -1086,13 +1086,13 @@
 
 												// close curtain
 												this._.properties.curtain.close(
-													( duration === undefined ? undefined : 0 )
+													( (duration === undefined) ? undefined : 0 )
 												);
 											}
 
 											// close window
 											this.dom.element.stop(true, true).fadeOut(
-												( duration === undefined ? self.options.current.animations.window.hide.duration : 0 ),
+												( (duration === undefined) ? self.options.current.animations.window.hide.duration : 0 ),
 												function() {
 
 													// completely remove the element from DOM
@@ -1115,7 +1115,7 @@
 
 														// close curtain
 														that._.properties.curtain.close(
-															( duration === undefined ? undefined : 0 )
+															( (duration === undefined) ? undefined : 0 )
 														);
 													}
 												}
@@ -1247,7 +1247,10 @@
 										return false;
 									}
 
-									var isFixed = ( (self.options.current.css.window.width !== undefined) || (self.options.current.css.window.height !== undefined) );
+									var isFixed = (
+										(self.options.current.css.window.width  !== undefined) ||
+										(self.options.current.css.window.height !== undefined)
+									);
 
 									// width of dialog window
 									var actualWidth = self.options.current.css.window.width;
@@ -1289,13 +1292,10 @@
 										actualOverflow = true;
 										actualWidth    = maxViewportWidth;
 
-										this.dom.element.css({
-											minWidth: ''
-										});
-
+										this.dom.element.css('min-width', '');
 										this.dom.content.css({
-											overflow: 'auto',
-											maxWidth: actualWidth
+											'overflow': 'auto',
+											'max-width': actualWidth
 										});
 
 									} else {
@@ -1304,7 +1304,7 @@
 
 										if (isFixed) {
 
-											this.dom.content.css('width', actualWidth - paddingH - marginH);
+											this.dom.content.css('width', (actualWidth - paddingH - marginH));
 
 										} else {
 
@@ -1319,13 +1319,11 @@
 										actualOverflow = true;
 										actualHeight   = maxViewportHeight;
 
-										this.dom.element.css({
-											minHeight: ''
-										});
+										this.dom.element.css('min-height', '');
 
 										this.dom.content.css({
-											overflow:  'auto',
-											maxHeight: actualHeight
+											'overflow':   'auto',
+											'max-height': actualHeight
 										});
 
 									} else {
@@ -1334,7 +1332,7 @@
 
 										if (isFixed) {
 
-											this.dom.content.css('height', actualHeight - paddingV - marginV);
+											this.dom.content.css('height', (actualHeight - paddingV - marginV));
 
 										} else {
 
@@ -1343,19 +1341,19 @@
 									}
 
 									// set/reset overflow
-									this.dom.content.css('overflow', ( ( isFixed || actualOverflow ) ? 'auto' : '' ));
+									this.dom.content.css('overflow', ( (isFixed || actualOverflow) ? 'auto' : '' ));
 
 									// en/disable scrolling on body
 									if (self.options.current.behavior.disableScrolling === 'auto') {
 
-										if ( disableScrolling || isFixed || actualOverflow ) {
+										if (disableScrolling || isFixed || actualOverflow) {
 
 											UltimaDialog._.methods.disableScrolling(jqBody);
 
 											// re-calculate actual width/height (add scrollbar width/height)
 											this.dom.content.css({
-												maxWidth:  (jqWindow.width() - paddingH - marginH),
-												maxHeight: (jqWindow.height() - paddingV - marginV)
+												'max-width':  (jqWindow.width()  - paddingH - marginH),
+												'max-height': (jqWindow.height() - paddingV - marginV)
 											});
 
 										} else {
@@ -1463,7 +1461,7 @@
 
 																var e      = jQuery(this);
 																var refID  = e.attr('data-ultimadialog-id');
-																var randID = ( refID + Math.floor( Math.random() * 10000 ) );
+																var randID = (refID + Math.floor(Math.random() * 10000));
 
 																e
 																	.attr('id', randID)
@@ -1644,8 +1642,8 @@
 											// predict size to smoothen the resize
 											var padding = window._.methods.getPadding(window.dom.element);
 											var size    = {
-												width:  ( isNaN(parseInt(iframe.attr('width'),  10)) ? 0 : parseInt(iframe.attr('width'),  10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.left + padding.right)),
-												height: ( isNaN(parseInt(iframe.attr('height'), 10)) ? 0 : parseInt(iframe.attr('height'), 10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.bottom + padding.top) )
+												width:  ( isNaN(parseInt(iframe.attr('width'),  10)) ? 0 : parseInt(iframe.attr('width'),  10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.left   + padding.right) ),
+												height: ( isNaN(parseInt(iframe.attr('height'), 10)) ? 0 : parseInt(iframe.attr('height'), 10) ) + ( self._.properties.simulateBorderBox ? 0 : (padding.bottom + padding.top  ) )
 											};
 											var pos = window._.methods.calcPosition(size.width, size.height);
 
@@ -1666,9 +1664,9 @@
 
 														iframe.css({
 
-															height: '',
+															height:  '',
 															opacity: 1.00,
-															width: ''
+															width:   ''
 
 														});
 
@@ -1811,7 +1809,10 @@
 										window._.methods.setLoading();
 
 									// video, audio
-									} else if ( (content.media === 'video') || (content.media === 'audio') ) {
+									} else if (
+										(content.media === 'video') ||
+										(content.media === 'audio')
+									) {
 
 										// initialize "invisible" media element to allow preloading
 										var media = jQuery('<' + content.media + '>')
@@ -1856,7 +1857,7 @@
 										};
 
 										// Internet Explorer controls
-										if ( jqWindow[0].ActiveXObject || ('ActiveXObject' in jqWindow[0]) ) {
+										if (jqWindow[0].ActiveXObject || ('ActiveXObject' in jqWindow[0])) {
 
 											minSize.audio.width  = 580;
 											minSize.audio.height =  80;
@@ -1902,7 +1903,7 @@
 											// predict size to smoothen the resize
 											var padding = window._.methods.getPadding(window.dom.element);
 											var size    = {
-												width:  ( isNaN(parseInt(media.attr('width'), 10)) ? 0 : parseInt(media.attr('width'), 10) ) + (padding.left + padding.right),
+												width:  ( isNaN(parseInt(media.attr('width'),  10)) ? 0 : parseInt(media.attr('width'),  10) ) + (padding.left   + padding.right),
 												height: ( isNaN(parseInt(media.attr('height'), 10)) ? 0 : parseInt(media.attr('height'), 10) ) + (padding.bottom + padding.top)
 											};
 											var pos = window._.methods.calcPosition(size.width, size.height);
@@ -2029,7 +2030,7 @@
 
 											var e      = jQuery(this);
 											var refID  = e.attr('data-ultimadialog-id');
-											var randID = ( refID + Math.floor( Math.random() * 10000 ) );
+											var randID = (refID + Math.floor(Math.random() * 10000));
 
 											e
 												.attr('id', randID)
